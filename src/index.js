@@ -147,7 +147,8 @@ FORM.addEventListener('submit', () => getWeatherNextDay());
 FORM.addEventListener('submit', () => getImage());
 
 window.onload = getImage();
-
+let i;
+console.log(i);
 // eslint-disable-next-line no-undef
 mapboxgl.accessToken = 'pk.eyJ1IjoiaW5uYXJla2VzaCIsImEiOiJjazQ1aHk1MTEwOHg4M2dxbzE5a3dqY3ZjIn0.8r5bwO9SWcGL4CYdwqsobA';
 if ('geolocation' in navigator) {

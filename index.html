@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fancy-weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles.css">
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet"/>
+    <link rel="stylesheet"  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header">
+            <div class="header-buttons">
+                <button class="header-buttons-item bgImg" id="bgImg">Load</button>
+                <select class="header-buttons-item language" id="language">
+                    <option>En</option>
+                    <option>Ru</option>
+                    <option>Be</option>
+                </select>
+                <button class="header-buttons-item degries" id="celsius">°C</button>
+                <button class="header-buttons-item degries" id="fahrenheit">F</button>
+            </div>
+            <form class="header-search" id="form">
+                <div id="geocoder"></div>
+                <!--<input type="text" id="city" name="city" value='' class="header-search--input" placeholder="Search city">-->
+                <button id="button-search" class="header-search--button" value="Search">Search</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<section class="container">
+    <div class="main">
+        <section class="weather">
+            <h1 id="timezone" class="weather-timezone"></h1>
+            <div class="weather-date" id="today"></div>
+            <div class="weather-today">
+                <div class="weather-today--temperature"></div>
+                <div class="weather-today--degree"></div>
+                <img src="src/accets/big-cloud.svg" alt="cloud" class="weather-today--cloud">
+            </div>
+            <div class="weather-next_day">
+                <div class="weather-next_day-item">
+                    <h3 class="weather-next_day--item-title" id="tomorrow"></h3>
+                    <div class="weather-next_day--item-temperature">
+                        <div id="tm"></div>
+                        <img src="src/accets/mainly-cloudy.svg" alt="mainly-cloudy">
+                    </div>
+                </div>
+                <div class="weather-next_day-item">
+                    <h3 class="weather-next_day--item-title" id="day_after_tomorrow"></h3>
+                    <div class="weather-next_day--item-temperature">
+                        <div id="dayAfterTm"></div>
+                        <img src="src/accets/cloudy.svg" alt="mainly-cloudy">
+                    </div>
+                </div>
+                <div class="weather-next_day-item">
+                    <h3 class="weather-next_day--item-title" id="after_the_day_after_tomorrow"></h3>
+                    <div class="weather-next_day--item-temperature">
+                        <div id="afterTheDayAfterTm"></div>
+                        <img src="src/accets/cloudy.svg" alt="mainly-cloudy">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="weather-map">
+            <div id="map"></div>
+            <div class="weather-map--coordinates">
+                <div class="weather-map--coordinates-longitude" id="longitude">Longitude:<div class="weather-lon__data"></div></div>
+                <div class="weather-map--coordinates-latitude" id="latitude">Latitude:<div class="weather-lat__data"></div></div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js" async></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js" async></script>
+<script type="module" src="src/index.js"></script>
+</body>
+</html>

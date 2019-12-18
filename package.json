@@ -1,0 +1,36 @@
+{
+  "name": "fancy-weather",
+  "version": "1.0.0",
+  "description": "fancy-weather",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode-development --open",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inna-rekesh/fancy-weather.git"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "Inna Rekesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inna-rekesh/fancy-weather/issues"
+  },
+  "homepage": "https://github.com/inna-rekesh/fancy-weather#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "path": "^0.12.7",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {}
+}

@@ -1,5 +1,7 @@
+const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -12,6 +14,9 @@ module.exports = {
   devServer: {
     overlay: true,
   },
+  performance: {
+     hints: false
+   },
   module: {
     rules: [
         {
@@ -31,6 +36,7 @@ module.exports = {
     ]
   },
   plugins: [
+      new HtmlWebpackPlugin(),
       new ExtractTextPlugin("styles.css"),
     ]
 };

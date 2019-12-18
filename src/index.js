@@ -159,6 +159,7 @@ if ('geolocation' in navigator) {
       center: [position.coords.longitude, position.coords.latitude],
       zoom: 9,
     });
+    // eslint-disable-next-line no-undef
     const geocoder = new MapboxGeocoder({
       // eslint-disable-next-line no-undef
       accessToken: mapboxgl.accessToken,

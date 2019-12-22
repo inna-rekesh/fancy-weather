@@ -51,7 +51,7 @@ async function getImage() {
   }
 }
 
-window.onload = getImage();
+getImage();
 
 const btnLoad = document.getElementById('bgImg');
 btnLoad.addEventListener('click', getImage);
@@ -112,7 +112,7 @@ function getTemperatureGeolocation() {
   }
 }
 
-window.onload = getTemperatureGeolocation();
+getTemperatureGeolocation();
 
 function setDataInHtml(name, temp, country, timezone) {
   temperatureDegree.textContent = temp.toFixed(0);

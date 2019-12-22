@@ -136,7 +136,7 @@ function setDataInHtml(name, temp, country, timezone) {
 async function gettingWeather(e) {
   e.preventDefault();
   getImage();
-  const apiWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+  const apiWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
   const response = await fetch(apiWeatherUrl);
   const json = await response.json();
   const {

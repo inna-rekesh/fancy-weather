@@ -144,6 +144,7 @@ async function gettingWeather(e) {
   } = json;
   setCoordinates(coord.lon, coord.lat);
   setDataInHtml(name, main.temp, sys.country, timezone);
+  getImage().then(r=>r);
 }
 
 FORM.addEventListener('submit', (e) => gettingWeather(e));

@@ -9,6 +9,7 @@ const API_KEY = '995905e2fb21d6bf45a41cd5f589d28b';
 const todayDate = document.getElementById('today');
 const FORM = document.getElementById('form');
 
+
 function convertFahrenheitToCelsius(val) {
   const res = (val - 32) / 1.8;
   return res.toFixed(0);
@@ -49,6 +50,8 @@ async function getImage() {
     throw new TypeError(e);
   }
 }
+
+window.onload = getImage();
 
 const btnLoad = document.getElementById('bgImg');
 btnLoad.addEventListener('click', getImage);
@@ -103,14 +106,13 @@ function getTemperatureGeolocation() {
       drawGettingDataInHTML(timezone, temperature, offset);
       setCoordinates(lon, lat);
       getWeatherNextDay();
-      getImage();
     });
   } else {
     throw new Error('You browser does not supported');
   }
 }
 
-getTemperatureGeolocation();
+window.onload = getTemperatureGeolocation();
 
 function setDataInHtml(name, temp, country, timezone) {
   temperatureDegree.textContent = temp.toFixed(0);
@@ -146,9 +148,7 @@ FORM.addEventListener('submit', () => getWeatherNextDay());
 
 FORM.addEventListener('submit', () => getImage());
 
-window.onload = getImage();
-let i;
-console.log(i);
+
 // eslint-disable-next-line no-undef
 mapboxgl.accessToken = 'pk.eyJ1IjoiaW5uYXJla2VzaCIsImEiOiJjazQ1aHk1MTEwOHg4M2dxbzE5a3dqY3ZjIn0.8r5bwO9SWcGL4CYdwqsobA';
 if ('geolocation' in navigator) {

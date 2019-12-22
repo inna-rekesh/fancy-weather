@@ -37,9 +37,11 @@ function getTime(offset) {
   return nd.toLocaleString();
 }
 
+
 async function getImage() {
   const key = '8d720f0d7885b299d736582e9383e03be14a24fdb99e6054335a47b219b4dd9d';
   const url = `https://api.unsplash.com/photos/random?query=town,${city}&client_id=${key}`;
+  console.log(city)
   let data;
   try {
     const response = await fetch(url);
@@ -51,7 +53,6 @@ async function getImage() {
   }
 }
 
-getImage();
 
 const btnLoad = document.getElementById('bgImg');
 btnLoad.addEventListener('click', getImage);
@@ -103,9 +104,11 @@ function getTemperatureGeolocation() {
       const { timezone, offset } = data;
       // eslint-disable-next-line prefer-destructuring
       city = timezone.split('/')[1];
+      console.log(city);
       drawGettingDataInHTML(timezone, temperature, offset);
       setCoordinates(lon, lat);
-      getWeatherNextDay();
+      await getWeatherNextDay();
+      getImage().then(r => r);
     });
   } else {
     throw new Error('You browser does not supported');
@@ -113,6 +116,7 @@ function getTemperatureGeolocation() {
 }
 
 getTemperatureGeolocation();
+
 
 function setDataInHtml(name, temp, country, timezone) {
   temperatureDegree.textContent = temp.toFixed(0);

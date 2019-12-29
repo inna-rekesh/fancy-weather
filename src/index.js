@@ -57,6 +57,22 @@ async function getImage() {
 const btnLoad = document.getElementById('bgImg');
 btnLoad.addEventListener('click', getImage);
 
+function addDataNextDayToPage(arrTempNextDay) {
+  document.getElementById('tm').innerText = `${arrTempNextDay[0]}°`;
+  document.getElementById('dayAfterTm').innerText = `${arrTempNextDay[1]}°`;
+  document.getElementById('afterTheDayAfterTm').innerText = `${arrTempNextDay[2]}°`;
+  fahrenheitBtn.addEventListener('click', () => {
+    document.getElementById('tm').textContent = convertCelsiusToFahrenheit(arrTempNextDay[0]);
+    document.getElementById('dayAfterTm').textContent = convertCelsiusToFahrenheit(arrTempNextDay[1]);
+    document.getElementById('afterTheDayAfterTm').textContent = convertCelsiusToFahrenheit(arrTempNextDay[1]);
+  });
+  celsiusBtn.addEventListener('click', () => {
+    document.getElementById('tm').innerText = `${arrTempNextDay[0]}°`;
+    document.getElementById('dayAfterTm').innerText = `${arrTempNextDay[1]}°`;
+    document.getElementById('afterTheDayAfterTm').innerText = `${arrTempNextDay[2]}°`;
+  });
+}
+
 async function getWeatherNextDay() {
   const apiWeatherNextDay = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`;
   const response = await fetch(apiWeatherNextDay);
@@ -66,9 +82,7 @@ async function getWeatherNextDay() {
   const arrTempNextDay = list.filter((x) => {
     if (x.dt_txt.indexOf('00:00:00') !== -1) return x;
   }).map((y) => y.main.temp.toFixed(0));
-  document.getElementById('tm').innerText = `${arrTempNextDay[0]}°`;
-  document.getElementById('dayAfterTm').innerText = `${arrTempNextDay[1]}°`;
-  document.getElementById('afterTheDayAfterTm').innerText = `${arrTempNextDay[2]}°`;
+  addDataNextDayToPage(arrTempNextDay);
 }
 
 function drawGettingDataInHTML(timezone, temperature, offset) {
